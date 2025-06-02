@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crop Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body style="background-color: red;">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid" style="background-color: gray; margin-bottom: -8px; margin-top: -8px;">
+        <a class="navbar-brand" href="#">
+          <h3 style="margin-right: 50px;">Crop <span style="color: green;">Recommendation</span> System</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1 class="text-success text-center">
+        <span>🪴</span>Crop Recommendation System <span>🌱</span>
+      </h1>
+
+      <!-- Form Section -->
+      <form action="/predict" method="POST">
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <label for="Nitrogen">Nitrogen</label>
+            <input type="number" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label for="Phosporus">Phosporus</label>
+            <input type="number" id="Phosporus" name="Phosporus" placeholder="Enter Phosporus" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label for="Potassium">Potassium</label>
+            <input type="number" id="Potassium" name="Potassium" placeholder="Enter Potassium" class="form-control" required>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <label for="Temperature">Temperature</label>
+            <input type="number" id="Temperature" name="Temperature" placeholder="Enter Temperature" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label for="Humidity">Humidity</label>
+            <input type="number" id="Humidity" name="Humidity" placeholder="Enter Humidity" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label for="pH">pH</label>
+            <input type="number" id="pH" name="pH" placeholder="Enter pH" class="form-control" required>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <label for="Rainfall">Rainfall</label>
+            <input type="number" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall" class="form-control" required>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Get Recommendation</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Result Section -->
+      {% if result %}
+      <div class="card bg-dark text-white mt-5 mx-auto" style="width: 40rem;">
+        <img src="{{ url_for('static', filename='agriculture.jpg') }}" class="card-img-top" alt="Crop Image">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center;">Recommended Crop for Cultivation:</h5>
+          <p class="card-text" style="text-align: center;">{{ result }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
