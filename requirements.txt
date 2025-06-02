@@ -2,7 +2,7 @@ flask==3.1.0
 pandas
 #pickle
 gunicorn==20.1.0
-scikit-learn==1.5.2
+scikit-learn==1.6.0
 plotly==5.14.1
 Werkzeug>=2.2.2
 numpy==1.23.5
